@@ -17,9 +17,8 @@ return new class extends Migration {
             $table->text('identifier');
             $table->text('task');
             $table->string('category');
-            $table->integer('count');
-            $table->float('cost');
-            $table->float('accessibility');
+            $table->integer('person');
+            $table->string('cost')->nullable();
             $table->text('link')->nullable();
             $table->timestamps();
         });

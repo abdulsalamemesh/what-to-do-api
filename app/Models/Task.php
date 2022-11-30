@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CategoriesEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,9 +14,22 @@ class Task extends Model
         'identifier',
         'task',
         'category',
-        'count',
+        'person',
         'cost',
-        'accessibility',
         'link',
     ];
+
+    protected $casts = [
+        'category' => CategoriesEnum::class
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($model) {
+            $model->identifier = bin2hex(random_bytes(3));
+        });
+    }
+
 }

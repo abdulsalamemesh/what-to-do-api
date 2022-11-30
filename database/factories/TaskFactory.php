@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CategoriesEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,15 +17,13 @@ class TaskFactory extends Factory
      */
     public function definition()
     {
-        $cost = ['$', '$$', '$$$'];
+        $cost = [null, '$', '$$', '$$$'];
         return [
-            'identifier'    => $this->faker->uuid(),
-            'task'          => $this->faker->sentence(),
-            'category'      => $this->faker->word(),
-            'count'         => $this->faker->numberBetween(1, 10),
-            'cost'          => $this->faker->randomElement($cost),
-            'accessibility' => $this->faker->randomElement([1, 2, 3]),
-            'link'          => $this->faker->boolean() ? $this->faker->url() : null,
+            'task'     => $this->faker->sentence(),
+            'category' => $this->faker->randomElement(CategoriesEnum::values()),
+            'person'    => $this->faker->numberBetween(1, 10),
+            'cost'     => $this->faker->randomElement($cost),
+            'link'     => $this->faker->boolean() ? $this->faker->url() : null,
         ];
     }
 }
