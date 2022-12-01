@@ -27,22 +27,20 @@
     @livewireStyles
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
+<div class="sticky top-0 bg-white md:h-12 sm:block shadow z-30">
+    <div class="container mx-auto flex  justify-between items-center h-full p-2">
+        <a href="{{route('home')}}" class="md:text-xl font-bold whitespace-nowrap">
+            &#128161; What To Do<span class="text-blue-500"> API</span>
+        </a>
 
-<div class="grow relative">
-    <div class="sticky top-0 bg-white md:h-12 sm:block shadow">
-        <div class="container mx-auto flex  justify-between items-center h-full p-2">
-            <a href="{{route('home')}}" class="md:text-xl font-bold whitespace-nowrap">
-                &#128161; What To Do<span class="text-blue-500"> API</span>
-            </a>
-
-            <div class="hidden md:flex space-x-2 md:space-x-4">
-                <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Home')}}</a>
-                <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Add')}}</a>
-                <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">API</a>
-            </div>
-            <div class="flex justify-center items-center  md:hidden ">
-                <div
-                    x-data="{
+        <div class="hidden md:flex space-x-2 md:space-x-4">
+            <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Home')}}</a>
+            <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Add')}}</a>
+            <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Docs')}}</a>
+        </div>
+        <div class="flex justify-center items-center  md:hidden ">
+            <div
+                x-data="{
             open: false,
             toggle() {
                 if (this.open) {
@@ -61,62 +59,63 @@
                 focusAfter && focusAfter.focus()
             }
         }"
-                    x-on:keydown.escape.prevent.stop="close($refs.button)"
-                    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-                    x-id="['dropdown-button']"
-                    class="relative flex"
+                x-on:keydown.escape.prevent.stop="close($refs.button)"
+                x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                x-id="['dropdown-button']"
+                class="relative flex"
+            >
+                <!-- Button -->
+                <button
+                    x-ref="button"
+                    x-on:click="toggle()"
+                    :aria-expanded="open"
+                    :aria-controls="$id('dropdown-button')"
+                    type="button"
+
                 >
-                    <!-- Button -->
-                    <button
-                        x-ref="button"
-                        x-on:click="toggle()"
-                        :aria-expanded="open"
-                        :aria-controls="$id('dropdown-button')"
-                        type="button"
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-5 w-5" :class="open ? 'fill-blue-500':'fill-gray-700'">
+                        <path
+                            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                    </svg>
+                </button>
 
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-5 w-5" :class="open ? 'fill-blue-500':'fill-gray-700'">
-                            <path
-                                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
-                        </svg>
-                    </button>
+                <!-- Panel -->
+                <div
+                    x-ref="panel"
+                    x-show="open"
+                    x-transition.origin.top.left
+                    x-on:click.outside="close($refs.button)"
+                    :id="$id('dropdown-button')"
+                    style="display: none;"
+                    class="absolute right-0 mt-8 w-40 rounded-md bg-white shadow-md"
+                >
+                    <a href="{{route('home')}}"
+                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('home')) text-blue-500 @endif hover:bg-blue-50">
+                        {{__('Home')}}
+                    </a>
 
-                    <!-- Panel -->
-                    <div
-                        x-ref="panel"
-                        x-show="open"
-                        x-transition.origin.top.left
-                        x-on:click.outside="close($refs.button)"
-                        :id="$id('dropdown-button')"
-                        style="display: none;"
-                        class="absolute right-0 mt-8 w-40 rounded-md bg-white shadow-md"
-                    >
-                        <a href="{{route('home')}}"
-                           class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('home')) text-blue-500 @endif hover:bg-blue-50">
-                            {{__('Home')}}
-                        </a>
+                    <a href="{{route('home')}}"
+                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-500 @endif hover:bg-blue-50">
+                        {{__('Add')}}
+                    </a>
 
-                        <a href="{{route('home')}}"
-                           class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-500 @endif hover:bg-blue-50">
-                            {{__('Add')}}
-                        </a>
-
-                        <a href="{{route('home')}}"
-                           class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-500 @endif hover:bg-blue-50">
-                            API
-                        </a>
-                    </div>
+                    <a href="{{route('home')}}"
+                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-500 @endif hover:bg-blue-50">
+                        {{__('Docs')}}
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
-    <main class="h-full">
-        {{ $slot }}
-    </main>
 </div>
 
-<footer class="pt-5">
+
+<main class="grow relative">
+    {{ $slot }}
+</main>
+
+
+<footer>
     <p class="p-2 text-center border-t bg-white text-gray-700 text-sm font-medium">
         All rights reserved - &#128161; What To Do <span class="text-blue-500">API</span>
     </p>
