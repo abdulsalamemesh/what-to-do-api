@@ -15,13 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//
-//    $translator = new \DeepL\Translator(env('DEEPL_API_KEY'));
-//
-//    dd($translator->translateText('Learn how to play a new sport','en','de',['formality' => 'less'])->text);
-//    return view('welcome');
-//});
 
 Route::get('/', HomeController::class)->name('home');
 Route::resource('/tasks', TaskController::class);
