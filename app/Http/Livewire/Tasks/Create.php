@@ -23,7 +23,7 @@ class Create extends Component
     public string $selectedCost = 'free';
     public string $selectedPerson = '1';
     public string $selectedCategory = 'staying busy';
-    public string $textLanguage = 'en';
+    public string $textLanguage = 'en-US';
     public array $selectedResourceLanguages = [];
     public array $resources = [];
 
@@ -32,7 +32,7 @@ class Create extends Component
     {
         $this->categories = CategoriesEnum::values();
         $this->languages = [
-            'en' => __('english'),
+            'en-US' => __('english'),
             'de' => __('german'),
         ];
         $this->charsCount = 280;
