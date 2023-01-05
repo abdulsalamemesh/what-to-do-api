@@ -23,7 +23,7 @@ class TaskFactory extends Factory
             'category' => $this->faker->randomElement(CategoriesEnum::values()),
             'person'    => $this->faker->numberBetween(1, 10),
             'cost'     => $this->faker->randomElement($cost),
-            'link'     => $this->faker->boolean() ? $this->faker->url() : null,
+            'links'     => $this->faker->boolean() ? $this->faker->url() : null,
         ];
     }
 }
