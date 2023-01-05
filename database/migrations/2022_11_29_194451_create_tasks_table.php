@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('category');
             $table->integer('person');
             $table->string('cost')->nullable();
-            $table->text('link')->nullable();
+            $table->text('links')->nullable();
             $table->timestamps();
         });
     }
