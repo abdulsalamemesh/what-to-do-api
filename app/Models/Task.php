@@ -16,11 +16,13 @@ class Task extends Model
         'category',
         'person',
         'cost',
-        'link',
+        'links',
     ];
 
     protected $casts = [
-        'category' => CategoriesEnum::class
+        'category' => CategoriesEnum::class,
+        'task'     => AsArrayObject::class,
+        'links'    => AsArrayObject::class,
     ];
 
     protected static function boot()
