@@ -59,12 +59,25 @@
         <div class="flex flex-col justify-center items-center w-full">
             <div class="bg-gray-100 py-3 px-5 rounded space-y-2 w-full md:w-2/3 border-4" wire:target="getTask" wire:loading.class="border-blue-500 bg-blue-50">
                 @if($task)
-                    <p><span class="font-medium">{{__('Task')}}:</span> {{$task->task}}</p>
+                    <p><span class="font-medium">{{__('Task')}}:</span> <br>
+                        @forelse($task->task as $key => $link)
+                            {{['en-US' => 'English','de'=> 'German'][$key]}}:  {{$link}} <br>
+                        @empty
+                        @endforelse
+                    </p>
                     <p><span class="font-medium">{{__('People')}}:</span> {{$task->person}}</p>
                     <p><span class="font-medium">{{__('Category')}}:</span> {{$task->category}}</p>
                     <p><span class="font-medium">{{__('Cost')}}:</span> {{$task->cost}}</p>
-                    <p><span class="font-medium">{{__('Resources')}}:</span> <a href="{{$task->link}}" target="_blank" class="text-blue-500 hover:text-blue-600">{{$task->link}}</a>
-                    </p>
+                    @if($task->links)
+                        <p><span class="font-medium">{{__('Resources')}}:
+                        </span> <br>
+                            @forelse($task->links as $key => $link)
+                                {{['en-US' => 'English','de'=> 'German'][$key]}}:     <a href="{{$link}}" target="_blank" class="text-blue-500 hover:text-blue-600">{{$link}}
+                                </a>
+                            @empty
+                            @endforelse
+                        </p>
+                    @endif
                 @else
                     <p><span class="font-medium">{{__('Oh... we couldn\'t find anything this time. Try other filters')}}</p>
                 @endif
