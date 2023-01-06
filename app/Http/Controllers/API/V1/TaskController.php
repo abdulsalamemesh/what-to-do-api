@@ -15,40 +15,42 @@ class TaskController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $undefinedQueries = array_values(array_diff($request->query->keys(), ['identifier', 'task', 'category', 'person', 'cost', 'link']));
+        $undefinedQueries = array_values(array_diff($request->query->keys(), ['identifier', 'task', 'category', 'person', 'cost', 'links','language']));
 
         if ($undefinedQueries) {
-            $string = 'The following query strings are not allowed: ';
-
+            $message = 'The following query strings have a typo or are not allowed: ';
             foreach ($undefinedQueries as $key => $str) {
-                $string .= $str;
-                $string .= $key == (count($undefinedQueries) - 1) ? '.' : ', ';
+                $message .= $str;
+                $message .= $key == (count($undefinedQueries) - 1) ? '.' : ', ';
             }
             return response([
-                'error' => $string
+                'error' => $message
             ], 422);
         }
 
         $query = \App\Models\Task::query()->inRandomOrder()->where(function ($builder) use ($request) {
             if ($request->query->has('identifier')) {
                 $builder->where('identifier', $request->query->get('identifier'));
-
             }
             if ($request->query->has('category')) {
                 $builder->where('category', $request->query->get('category'));
-
             }
             if ($request->query->has('person')) {
                 $builder->where('person', $request->query->get('person'));
-
             }
             if ($request->query->has('cost')) {
                 $builder->where('cost', $request->query->get('cost'));
-
             }
         });
 
-        $data = $query->first(['identifier', 'task', 'category', 'person', 'cost', 'link']);
+        $data = $query->first(['identifier', 'task', 'category', 'person', 'cost', 'links'])->toArray();
+
+        if ($request->query->has('language') && $data['task'] && $data['task'][$request->query->get('language')]) {
+            $data['task'] = $data['task'][$request->query->get('language')];
+        }
+        if ($request->query->has('language') && $data['links'] && $data['links'][$request->query->get('language')]) {
+            $data['links'] = $data['links'][$request->query->get('language')];
+        }
 
         if (!$data) {
             return response([
@@ -56,6 +58,6 @@ class TaskController extends Controller
             ], 404);
         }
 
-        return response($data,200);
+        return response($data, 200);
     }
 }

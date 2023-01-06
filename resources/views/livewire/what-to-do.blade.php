@@ -39,7 +39,7 @@
                     @foreach($persons as $person)
                         <div
                             class="flex flex-col justify-between bg-blue-500 hover:bg-blue-600 hover:shadow-[-4px_4px_0px_rgb(252,211,77)] transition-all duration-150 rounded relative">
-                            <input wire:model="selectedPersons"  type="checkbox" id="{{$person}}" value="{{$person}}" class="appearance-none peer"/>
+                            <input wire:model="selectedPersons" type="checkbox" id="{{$person}}" value="{{$person}}" class="appearance-none peer"/>
                             <label for="{{$person}}"
                                    class="cursor-pointer p-1 rounded flex flex-row justify-center px-3 select-none text-white transition-all duration-150 peer-checked:text-yellow-300">{{$person}}</label>
                             <div class="absolute w-full h-full rounded peer-checked:shadow-[-4px_4px_0px_rgb(252,211,77)] pointer-events-none transition-all duration-300"></div>
@@ -59,9 +59,13 @@
         <div class="flex flex-col justify-center items-center w-full">
             <div class="bg-gray-100 py-3 px-5 rounded space-y-2 w-full md:w-2/3 border-4" wire:target="getTask" wire:loading.class="border-blue-500 bg-blue-50">
                 @if($task)
-                    <p><span class="font-medium">{{__('Task')}}:</span> <br>
-                        @forelse($task->task as $key => $link)
-                            {{['en-US' => 'English','de'=> 'German'][$key]}}:  {{$link}} <br>
+                    <p>
+                        <span class="font-medium">{{__('Task')}}:</span>
+                        <br>
+                        @forelse($task->task as $language => $text)
+                            <span class="font-medium">{{$languages[$language]}}:</span>
+                            {{$text}}
+                            <br>
                         @empty
                         @endforelse
                     </p>
@@ -69,17 +73,19 @@
                     <p><span class="font-medium">{{__('Category')}}:</span> {{$task->category}}</p>
                     <p><span class="font-medium">{{__('Cost')}}:</span> {{$task->cost}}</p>
                     @if($task->links)
-                        <p><span class="font-medium">{{__('Resources')}}:
-                        </span> <br>
-                            @forelse($task->links as $key => $link)
-                                {{['en-US' => 'English','de'=> 'German'][$key]}}:     <a href="{{$link}}" target="_blank" class="text-blue-500 hover:text-blue-600">{{$link}}
-                                </a>
+                        <p>
+                            <span class="font-medium">{{__('Resources')}}:</span>
+                            <br>
+                            @forelse($task->links as $language => $link)
+                                <span class="font-medium">{{$languages[$language]}}:</span>
+                                <a href="{{$link}}" target="_blank" class="text-blue-500 hover:text-blue-600">{{$link}}</a>
+                                <br>
                             @empty
                             @endforelse
                         </p>
                     @endif
                 @else
-                    <p><span class="font-medium">{{__('Oh... we couldn\'t find anything this time. Try other filters')}}</p>
+                    <p class="font-medium">{{__('Oh... we couldn\'t find anything this time. Try other filters')}}</p>
                 @endif
             </div>
         </div>

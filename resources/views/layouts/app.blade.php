@@ -24,6 +24,7 @@
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    {{--    @vite('resources/js/clipboard.min.js')--}}
     @livewireStyles
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
@@ -34,9 +35,12 @@
         </a>
 
         <div class="hidden md:flex space-x-2 md:space-x-4">
-            <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Home')}}</a>
-            <a href="{{route('tasks.create')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Add')}}</a>
-            <a href="{{route('home')}}" class=" font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{__('Docs')}}</a>
+            <a href="{{route('home')}}"
+               class="font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2 @if(request()->routeIs('home')) border-blue-600 @endif ">{{__('Home')}}</a>
+            <a href="{{route('tasks.create')}}"
+               class="font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2 @if(request()->routeIs('tasks.create')) border-blue-600 @endif ">{{__('Add')}}</a>
+            <a href="{{route('documentation')}}"
+               class="font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2 @if(request()->routeIs('documentation')) border-blue-600 @endif ">{{__('Docs')}}</a>
         </div>
         <div class="flex justify-center items-center  md:hidden ">
             <div
@@ -90,17 +94,17 @@
                     class="absolute right-0 mt-8 w-40 rounded-md bg-white shadow-md"
                 >
                     <a href="{{route('home')}}"
-                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('home')) text-blue-500 @endif hover:bg-blue-50">
+                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('home')) text-blue-600 @endif hover:bg-blue-50">
                         {{__('Home')}}
                     </a>
 
                     <a href="{{route('tasks.create')}}"
-                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-500 @endif hover:bg-blue-50">
+                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-600 @endif hover:bg-blue-50">
                         {{__('Add')}}
                     </a>
 
-                    <a href="{{route('home')}}"
-                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-500 @endif hover:bg-blue-50">
+                    <a href="{{route('documentation')}}"
+                       class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm @if(request()->routeIs('/')) text-blue-600 @endif hover:bg-blue-50">
                         {{__('Docs')}}
                     </a>
                 </div>
@@ -122,5 +126,6 @@
 </footer>
 
 @livewireScripts
+@stack('scripts')
 </body>
 </html>

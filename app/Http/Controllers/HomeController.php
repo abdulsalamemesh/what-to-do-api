@@ -14,6 +14,7 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('home');
+        $languages = [];
+        return view('home',compact('languages'));
     }
 }

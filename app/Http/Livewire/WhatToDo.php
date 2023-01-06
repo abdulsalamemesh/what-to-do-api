@@ -16,6 +16,7 @@ class WhatToDo extends Component
     public array $selectedCosts = ['free'];
     public array $selectedPersons = [1];
     public array $selectedCategories = ['staying busy'];
+    public array $languages = ['en-US' => 'English','de'=> 'German'];
 
     public function mount()
     {
