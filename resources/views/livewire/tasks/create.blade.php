@@ -90,7 +90,7 @@
                         <div class="flex items-center w-full">
                             <label for="input-{{$key}}"
                                    class="px-3 cursor-pointer text-white bg-blue-500 h-8 rounded-l flex justify-center items-center">
-                                <span>{{ucwords($languages[$key])}}</span>
+                                <span>{{__(ucwords($languages[$key]))}}</span>
                             </label>
                             <input type="text" id="input-{{$key}}" wire:model="resources.{{$key}}" placeholder="https://www.google.com"
                                    class="w-full h-8 px-2 rounded-r border-r-2 border-t-2 border-b-2 border-blue-500 focus:outline-yellow-400"/>

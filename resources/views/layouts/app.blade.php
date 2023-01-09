@@ -41,6 +41,9 @@
                class="font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2 @if(request()->routeIs('tasks.create')) border-blue-600 @endif ">{{__('Add')}}</a>
             <a href="{{route('documentation')}}"
                class="font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2 @if(request()->routeIs('documentation')) border-blue-600 @endif ">{{__('Docs')}}</a>
+            <a href="{{route('setLocal',$currentLocal)}}"
+               class="font-medium text-gray-700 border-b-2 border-transparent hover:border-blue-500 px-2">{{['en' =>__('english'),'de' =>__('german')][$currentLocal]}}
+                </a>
         </div>
         <div class="flex justify-center items-center  md:hidden ">
             <div
@@ -121,7 +124,7 @@
 
 <footer>
     <p class="p-2 text-center border-t bg-white text-gray-700 text-sm font-medium">
-        All rights reserved - &#128161; What To Do <span class="text-blue-500">API</span>
+        {{__('All rights reserved')}} - &#128161; What To Do <span class="text-blue-500">API</span>
     </p>
 </footer>
 

@@ -21,7 +21,7 @@
                         @elseif(count($selectedLanguages) == 0)
                             <br>
                             @forelse($task->task as $language => $text)
-                                <span class="font-medium text-gray-700">{{ucfirst($languages[$language])}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
                                 {{$text}}
                                 <br>
                             @empty
@@ -29,7 +29,7 @@
                         @else
                             <br>
                             @forelse($selectedLanguages as $language)
-                                <span class="font-medium text-gray-700">{{ucfirst($languages[$language])}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
                                 {{$task->task[$language]}}
                                 <br>
                             @empty
@@ -46,7 +46,7 @@
                         @elseif(count($selectedLanguages) == 0)
                             <br>
                             @forelse($task->links as $language => $link)
-                                <span class="font-medium text-gray-700">{{ucfirst($languages[$language])}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
                                 <a class="text-blue-500 hover:text-blue-600" href="{{$link}}" target="_blank">{{$link}}</a>
                                 <br>
                             @empty
@@ -54,7 +54,7 @@
                         @else
                             <br>
                             @forelse($selectedLanguages as $language)
-                                <span class="font-medium text-gray-700">{{ucfirst($languages[$language])}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
                                 <a class="text-blue-500 hover:text-blue-600" href="{{$task->links[$language]}}" target="_blank">{{$task->links[$language]}}</a>
                                 <br>
                             @empty
@@ -76,7 +76,7 @@
                             class="flex flex-col justify-between bg-blue-500 hover:bg-blue-600 hover:shadow-[-4px_4px_0px_rgb(252,211,77)] transition-all duration-150 rounded relative">
                             <input wire:model="selectedLanguages" type="checkbox" id="{{$key}}" value="{{$key}}" class="appearance-none peer"/>
                             <label for="{{$key}}"
-                                   class="cursor-pointer p-1 rounded flex flex-row justify-center px-3 select-none text-white transition-all duration-150 peer-checked:text-yellow-300">{{ucwords($language)}}</label>
+                                   class="cursor-pointer p-1 rounded flex flex-row justify-center px-3 select-none text-white transition-all duration-150 peer-checked:text-yellow-300">{{__(ucwords($language))}}</label>
                             <div class="absolute w-full h-full rounded peer-checked:shadow-[-4px_4px_0px_rgb(252,211,77)] pointer-events-none transition-all duration-300"></div>
                         </div>
                     @endforeach

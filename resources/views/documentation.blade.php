@@ -13,31 +13,31 @@
 
     </div>
     <div id="general" class="py-24 w-full bg-blue-100 flex justify-center items-center">
-        <p class="font-medium text-3xl text-center">Documentation </p>
+        <p class="font-medium text-3xl text-center">{{__('Documentation')}}</p>
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-4 lg:px-6">
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">General Information</h3>
-                        <p class="mt-1 text-sm text-gray-600">This information will help you to understand the API. <br>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('General Information')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">{{__('This information will help you to understand the API.')}} <br>
 
-                            &#x2022 Base url <br>
-                            &#x2022 Response attributes <br>
-                            &#x2022 Supported languages<br>
-                            &#x2022 Rate limiting <br>
+                            &#x2022 {{__('Base url')}} <br>
+                            &#x2022 {{__('Response attributes')}} <br>
+                            &#x2022 {{__('Supported languages')}}<br>
+                            &#x2022 {{__('Rate limiting')}} <br>
                         </p>
                     </div>
                 </div>
                 <div class="mt-5 md:col-span-3 md:mt-0">
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
                         <div class="bg-gray-50 px-4 py-3 sm:px-6">
-                            <p class="font-medium text-lg ">General information</p>
+                            <p class="font-medium text-lg">{{__('General information')}}</p>
                         </div>
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
-                                <p class="text-sm">Base url for your query requests</p>
+                                <p class="text-sm">{{__('Base url for your query requests')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         {{env('APP_URL')}}/api/v1
@@ -52,13 +52,13 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Response attributes</p>
+                                <p class="text-sm">{{__('Response attributes')}}</p>
                                 <table class="w-full border-collapse border border-gray-200">
                                     <thead class="bg-gray-50 text-left">
                                     <tr>
-                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">Attribute</th>
-                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">Type</th>
-                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">Description</th>
+                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">{{__('Attribute')}}</th>
+                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">{{__('Type')}}</th>
+                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">{{__('Description')}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -71,30 +71,48 @@
                                         <td class="py-2 px-3 border border-gray-200 text-base">task</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">Object/String</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">
-                                            Default value is an object with the keys of the supported languages. <br>
-                                            Example: <br>
-                                            <div class="bg-gray-50 px-2 py-1 text-gray-700">
-                                                { <br>
-                                                &nbsp;&nbsp;&nbsp;"en-US" : "Default text of the task",<br>
-                                                &nbsp;&nbsp;&nbsp;"de" : ""<br>
-                                                &nbsp;&nbsp;&nbsp;"es" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"fr" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"ru" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"tr" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"uk" : "",<br>
-                                                },<br>
+                                            {{__('Default value is an object with the keys of the supported languages.')}} <br>
+                                            {{__('Example:')}} <br>
+                                            <div class="w-full bg-gray-50 border border-gray-200 relative group">
+                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                                    { <br>
+                                                    &nbsp;&nbsp;&nbsp;"en-US" : "{{__('Default text of the task')}}",<br>
+                                                    &nbsp;&nbsp;&nbsp;"de" : ""<br>
+                                                    &nbsp;&nbsp;&nbsp;"es" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"fr" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"it" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"ru" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"tr" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"uk" : ""<br>
+                                                    }<br>
+                                                </p>
+                                                <button type="button" data-clipboard-text='   {
+                                                "en-US" : "Default text of the task",
+                                                "de" : ""
+                                                "es" : "",
+                                                "fr" : "",
+                                                "it" : "",
+                                                "ru" : "",
+                                                "tr" : "",
+                                                "uk" : ""
+                                                }
+                                                    ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
+                                                        <path
+                                                            d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/>
+                                                    </svg>
+                                                </button>
                                             </div>
                                             <br>
-                                            The key "en-US" always has a value <br>
-                                            If the language query parameter was defined the task will have only the text of theis language
+                                            {{__('The key "en-US" always has a value')}} <br>
+                                            {{__('If the language query parameter was defined the task will have only the text of theis language')}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="py-2 px-3 border border-gray-200 text-base">category</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">String</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">
-                                            <div>The supported categories are:</div>
+                                            <div>{{__('The supported categories are:')}}</div>
                                             <div class="mt-2">
                                                 @foreach($supportedCategories as $category)
                                                     <span class="bg-gray-100 px-2 select-all">{{$category}}</span>
@@ -106,8 +124,8 @@
                                         <td class="py-2 px-3 border border-gray-200 text-base">person</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">Integer</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">
-                                            Number of people needed for the task. <br>
-                                            Default: <span class="bg-gray-100 px-2 select-all">1</span>, Min: <span class="bg-gray-100 px-2 select-all">1</span>, Max: <span
+                                            {{__('Number of people needed for the task.')}} <br>
+                                            {{__('Default:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Min:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Max:')}} <span
                                                 class="bg-gray-100 px-2 select-all">10</span>
                                         </td>
                                     </tr>
@@ -115,42 +133,60 @@
                                         <td class="py-2 px-3 border border-gray-200 text-base">Cost</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">String</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">
-                                            <div>The supported costs are:</div>
+                                            <div>{{__('The supported costs are:')}}</div>
                                             <div class="mt-2">
                                                 @foreach(['free','$','$$','$$$'] as $cost)
                                                     <span class="bg-gray-100 px-2 select-all">{{$cost}}</span>
                                                 @endforeach.
-                                                Default is <span class="bg-gray-100 px-2 select-all">free</span>
+                                                    {{__('Default is')}} <span class="bg-gray-100 px-2 select-all">free</span>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="py-2 px-3 border border-gray-200 text-base">links</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">Object</td>
+                                        <td class="py-2 px-3 border border-gray-200 text-base">Object/String</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">
-                                            Default value is an object with the keys of the supported languages. <br>
-                                            Example: <br>
-                                            <div class="bg-gray-50 px-2 py-1 text-gray-700">
-                                                { <br>
-                                                &nbsp;&nbsp;&nbsp;"en-US" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"de" : ""<br>
-                                                &nbsp;&nbsp;&nbsp;"es" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"fr" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"ru" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"tr" : "",<br>
-                                                &nbsp;&nbsp;&nbsp;"uk" : "",<br>
-                                                },<br>
+                                            {{__('Default value is an object with the keys of the supported languages.')}} <br><br>
+                                            {{__('Example:')}} <br>
+                                            <div class="w-full bg-gray-50 border border-gray-200 relative group">
+                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                                    { <br>
+                                                    &nbsp;&nbsp;&nbsp;"en-US" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"de" : ""<br>
+                                                    &nbsp;&nbsp;&nbsp;"es" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"fr" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"it" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"ru" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"tr" : "",<br>
+                                                    &nbsp;&nbsp;&nbsp;"uk" : ""<br>
+                                                    }<br>
+                                                </p>
+                                                <button type="button" data-clipboard-text='  {
+                                                "en-US" : "",
+                                                "de" : ""
+                                                "es" : "",
+                                                "fr" : "",
+                                                "it" : "",
+                                                "ru" : "",
+                                                "tr" : "",
+                                                "uk" : ""
+                                                }
+                                                    ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
+                                                        <path
+                                                            d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/>
+                                                    </svg>
+                                                </button>
                                             </div>
                                             <br>
-                                            If the language query parameter was defined the task will have only the link of this language
+                                            {{__('If the language query parameter was defined the task will have only the link of this language.')}}
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Supported languages:</p>
+                                <p class="text-sm">{{__('Supported languages:')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         "en-US" : "{{ucfirst('english')}}", <br>
@@ -169,7 +205,7 @@
                                     "it" : "Italian",
                                     "ru" : "Russian",
                                     "tr" : "Turkish",
-                                    "uk" : "Ukrainian",
+                                    "uk" : "Ukrainian"
                                     ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
                                             <path
@@ -179,9 +215,12 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Rate limiting</p>
-                                <p>Please note that you can send a maximum of 120 query requests per minute to our API. <br>
-                                    If you exceed this maximum number, you will be blocked from using our API.</p>
+                                <p class="text-sm">{{__('Rate limiting')}}</p>
+                                <p>
+                                    {{__('Please note that you can send a maximum of 120 query requests per minute to our API.')}}
+                                    <br>
+                                    {{__('If you exceed this maximum number, you will be blocked from using our API.')}}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -195,20 +234,20 @@
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Random</h3>
-                        <p class="mt-1 text-sm text-gray-600">You can get a random task with a random parameters</p>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('Random')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">{{__('You can get a random task with a random parameters')}}</p>
                     </div>
                 </div>
                 <div class="mt-5 md:col-span-3 md:mt-0">
 
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
                         <div class="bg-gray-50 px-4 py-3 sm:px-6">
-                            <p class="font-medium text-lg ">Random</p>
+                            <p class="font-medium text-lg">{{__('Random')}}</p>
 
                         </div>
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
-                                <p class="text-sm">Query end point</p>
+                                <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
@@ -226,7 +265,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Response</p>
+                                <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         { <br>
@@ -302,20 +341,20 @@
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Language</h3>
-                        <p class="mt-1 text-sm text-gray-600">You can get a random task in a specified language</p>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('Language')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">{{__('You can get a random task in a specified language')}}</p>
                     </div>
                 </div>
                 <div class="mt-5 md:col-span-3 md:mt-0">
 
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
                         <div class="bg-gray-50 px-4 py-3 sm:px-6">
-                            <p class="font-medium text-lg ">Language</p>
+                            <p class="font-medium text-lg">{{__('Language')}}</p>
 
                         </div>
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
-                                <p class="text-sm">Query end point</p>
+                                <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
@@ -333,7 +372,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Response</p>
+                                <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         { <br>
@@ -375,20 +414,20 @@
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Identifier</h3>
-                        <p class="mt-1 text-sm text-gray-600">Get a specific task through the identifier</p>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('Identifier')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">{{__('Get a specific task through the identifier')}}</p>
                     </div>
                 </div>
                 <div class="mt-5 md:col-span-3 md:mt-0">
 
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
                         <div class="bg-gray-50 px-4 py-3 sm:px-6">
-                            <p class="font-medium text-lg ">Identifier</p>
+                            <p class="font-medium text-lg">{{__('Identifier')}}</p>
 
                         </div>
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
-                                <p class="text-sm">Query end point</p>
+                                <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
@@ -406,7 +445,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Response</p>
+                                <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         { <br>
@@ -482,20 +521,20 @@
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Category</h3>
-                        <p class="mt-1 text-sm text-gray-600">Get a task which is in the specified category</p>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('Category')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">{{__('Get a task which is in the specified category')}}</p>
                     </div>
                 </div>
                 <div class="mt-5 md:col-span-3 md:mt-0">
 
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
                         <div class="bg-gray-50 px-4 py-3 sm:px-6">
-                            <p class="font-medium text-lg ">Category</p>
+                            <p class="font-medium text-lg">{{__('Category')}}</p>
 
                         </div>
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
-                                <p class="text-sm">Query end point</p>
+                                <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
@@ -513,7 +552,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Response</p>
+                                <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         { <br>
@@ -588,20 +627,20 @@
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Person</h3>
-                        <p class="mt-1 text-sm text-gray-600">Get a task which is in the specified people count</p>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('Person')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">{{__('Get a task which is in the specified people count')}}</p>
                     </div>
                 </div>
                 <div class="mt-5 md:col-span-3 md:mt-0">
 
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
                         <div class="bg-gray-50 px-4 py-3 sm:px-6">
-                            <p class="font-medium text-lg ">Person</p>
+                            <p class="font-medium text-lg">{{__('Person')}}</p>
 
                         </div>
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
-                                <p class="text-sm">Query end point</p>
+                                <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
@@ -619,7 +658,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Response</p>
+                                <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         { <br>
@@ -695,20 +734,20 @@
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Cost</h3>
-                        <p class="mt-1 text-sm text-gray-600">Get a task which is in the specified cost</p>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('Cost')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">{{__('Get a task which is in the specified cost')}}</p>
                     </div>
                 </div>
                 <div class="mt-5 md:col-span-3 md:mt-0">
 
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
                         <div class="bg-gray-50 px-4 py-3 sm:px-6">
-                            <p class="font-medium text-lg ">Cost</p>
+                            <p class="font-medium text-lg">{{__('Cost')}}</p>
 
                         </div>
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
-                                <p class="text-sm">Query end point</p>
+                                <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
@@ -726,7 +765,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">Response</p>
+                                <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
                                         { <br>
@@ -766,7 +805,6 @@
                                         "it" : "Vai a vedere una produzione di Broadway",
                                         "tr" : "Bir Broadway prodüksiyonu izlemeye gidin",
                                         "uk" : "Відвідати бродвейську виставу"
-
                                         },
                                         "category" : "fun",
                                         "person" : 4,

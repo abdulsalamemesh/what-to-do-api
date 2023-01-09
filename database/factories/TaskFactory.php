@@ -17,13 +17,32 @@ class TaskFactory extends Factory
      */
     public function definition()
     {
-        $cost = [null, '$', '$$', '$$$'];
+        $cost = ['free', '$', '$$', '$$$'];
         return [
-            'task'     => $this->faker->sentence(),
+            'task'     => [
+                'en-US' => $this->faker->sentence(),
+                'de'    => $this->faker->sentence(),
+                'es'    => $this->faker->sentence(),
+                'fr'    => $this->faker->sentence(),
+                'it'    => $this->faker->sentence(),
+                'ru'    => $this->faker->sentence(),
+                'tr'    => $this->faker->sentence(),
+                'uk'    => $this->faker->sentence(),
+            ],
             'category' => $this->faker->randomElement(CategoriesEnum::values()),
-            'person'    => $this->faker->numberBetween(1, 10),
+            'person'   => $this->faker->numberBetween(1, 10),
             'cost'     => $this->faker->randomElement($cost),
-            'links'     => $this->faker->boolean() ? $this->faker->url() : null,
+            'links'    => [
+                'en-US' => $this->faker->boolean() ? $this->faker->url() : '',
+                'de'    => $this->faker->boolean() ? $this->faker->url() : '',
+                'es'    => $this->faker->boolean() ? $this->faker->url() : '',
+                'fr'    => $this->faker->boolean() ? $this->faker->url() : '',
+                'it'    => $this->faker->boolean() ? $this->faker->url() : '',
+                'ru'    => $this->faker->boolean() ? $this->faker->url() : '',
+                'tr'    => $this->faker->boolean() ? $this->faker->url() : '',
+                'uk'    => $this->faker->boolean() ? $this->faker->url() : '',
+            ],
+
         ];
     }
 }
