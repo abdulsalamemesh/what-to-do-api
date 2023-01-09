@@ -15,7 +15,7 @@ class CreateTaskJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public array $supportedLanguages = ['en-US', 'de'];
+    public array $supportedLanguages = ['en-US', 'de', 'es', 'fr', 'it', 'ru', 'tr', 'uk',];
 
     /**
      * Create a new job instance.
@@ -42,7 +42,7 @@ class CreateTaskJob implements ShouldQueue
                 $translations[$supportedLanguage] = Arr::get($this->data, 'task');
                 continue;
             }
-            $translations[$supportedLanguage] = $translator->translateText(Arr::get($this->data, 'task'), Arr::get($this->data, 'textLanguage'), $supportedLanguage, in_array($supportedLanguage, ['de']) ? ['formality' => 'less'] : [])->text;
+            $translations[$supportedLanguage] = $translator->translateText(Arr::get($this->data, 'task'), Arr::get($this->data, 'textLanguage'), $supportedLanguage, in_array($supportedLanguage, ['de', 'es', 'fr', 'it']) ? ['formality' => 'less'] : [])->text;
         }
         Task::query()->create([
             'task'     => $translations,

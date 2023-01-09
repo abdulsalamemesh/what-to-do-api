@@ -13,13 +13,24 @@ class WhatToDo extends Component
     public array $categories;
     public array $persons;
     public array $costs = ['free', '$', '$$', '$$$'];
+    public array $selectedLanguages = ['en-US'];
     public array $selectedCosts = ['free'];
     public array $selectedPersons = [1];
     public array $selectedCategories = ['staying busy'];
-    public array $languages = ['en-US' => 'English','de'=> 'German'];
+    public array $languages;
 
     public function mount()
     {
+        $this->languages = [
+            'en-US' => __('english'),
+            'de'    => __('german'),
+            'es'    => __('spanish'),
+            'fr'    => __('french'),
+            'it'    => __('italian'),
+            'ru'    => __('russian'),
+            'tr'    => __('turkish'),
+            'uk'    => __('ukrainian'),
+        ];
         $this->task = Task::query()->where(function (Builder $eloquentBuilder) {
             $eloquentBuilder->whereIn('cost', $this->selectedCosts)
                 ->whereIn('person', $this->selectedPersons)

@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $undefinedQueries = array_values(array_diff($request->query->keys(), ['identifier', 'task', 'category', 'person', 'cost', 'links','language']));
+        $undefinedQueries = array_values(array_diff($request->query->keys(), ['identifier', 'task', 'category', 'person', 'cost', 'links', 'language']));
 
         if ($undefinedQueries) {
             $message = 'The following query strings have a typo or are not allowed: ';
@@ -45,10 +45,8 @@ class TaskController extends Controller
 
         $data = $query->first(['identifier', 'task', 'category', 'person', 'cost', 'links'])->toArray();
 
-        if ($request->query->has('language') && $data['task'] && $data['task'][$request->query->get('language')]) {
+        if ($request->query->has('language')) {
             $data['task'] = $data['task'][$request->query->get('language')];
-        }
-        if ($request->query->has('language') && $data['links'] && $data['links'][$request->query->get('language')]) {
             $data['links'] = $data['links'][$request->query->get('language')];
         }
 
@@ -58,6 +56,7 @@ class TaskController extends Controller
             ], 404);
         }
 
-        return response($data, 200);
+        return response($data, 200)
+            ->header('Content-Type', 'application/json');
     }
 }

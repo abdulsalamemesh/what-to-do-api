@@ -23,9 +23,8 @@ class Create extends Component
     public string $selectedCost = 'free';
     public string $selectedPerson = '1';
     public string $selectedCategory = 'staying busy';
-    public string $textLanguage = 'en-US';
-    public array $selectedResourceLanguages = [];
-    public array $resources = [];
+    public string $taskDefaultLanguage = 'en-US';
+    public array $resources;
 
 
     public function mount()
@@ -33,7 +32,23 @@ class Create extends Component
         $this->categories = CategoriesEnum::values();
         $this->languages = [
             'en-US' => __('english'),
-            'de' => __('german'),
+            'de'    => __('german'),
+            'es'    => __('spanish'),
+            'fr'    => __('french'),
+            'it'    => __('italian'),
+            'ru'    => __('russian'),
+            'tr'    => __('turkish'),
+            'uk'    => __('ukrainian'),
+        ];
+        $this->resources = [
+            'en-US' => '',
+            'de'    => '',
+            'es'    => '',
+            'fr'    => '',
+            'it'    => '',
+            'ru'    => '',
+            'tr'    => '',
+            'uk'    => '',
         ];
         $this->charsCount = 280;
     }
@@ -53,13 +68,12 @@ class Create extends Component
     public function rules(): array
     {
         return [
-            'textLanguage'                => ['required', Rule::in(array_keys($this->languages))],
-            'task'                        => ['required', 'max:280', 'min:5'],
-            'selectedCategory'            => ['required', Rule::in($this->categories)],
-            'selectedCost'                => ['required', Rule::in($this->costs)],
-            'selectedPerson'              => ['required', Rule::in(range(1, 10))],
-            'selectedResourceLanguages.*' => ['sometimes', Rule::in(array_keys($this->languages))],
-            'resources.*'                 => ['sometimes', 'url'],
+            'taskDefaultLanguage' => ['required', Rule::in(array_keys($this->languages))],
+            'task'                => ['required', 'max:280', 'min:5'],
+            'selectedCategory'    => ['required', Rule::in($this->categories)],
+            'selectedCost'        => ['required', Rule::in($this->costs)],
+            'selectedPerson'      => ['required', Rule::in(range(1, 10))],
+            'resources.*'         => ['sometimes', 'url'],
         ];
     }
 
@@ -73,17 +87,6 @@ class Create extends Component
         return to_route('home');
     }
 
-    public function updatedSelectedResourceLanguages($value)
-    {
-        if (!$value) {
-            $this->resources = [];
-        }
-        foreach ($this->resources as $key => $resource) {
-            if (!in_array($key, $this->selectedResourceLanguages)) {
-                unset($this->resources[$key]);
-            }
-        }
-    }
     public function updatingTask($value)
     {
         if (280 - Str::length($value) < 0) {
@@ -95,8 +98,6 @@ class Create extends Component
         }
 
     }
-
-
 
 
 }
