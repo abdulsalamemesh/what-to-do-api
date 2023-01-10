@@ -11,12 +11,12 @@
                 <p class="text-xs mb-2">{{__('Select the language, in which you would like to write your task.')}}
                     <br> {{__('The Api will translate it to all supported languages.')}}</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-1.5">
-                    @foreach($languages as $key => $language)
+                    @foreach(\App\Models\Language::KEYS_AND_NAMES as $key => $language)
                         <div wire:key="{{$key}}-text-language"
                              class="flex flex-col justify-between bg-blue-500 hover:bg-blue-600 hover:shadow-[-4px_4px_0px_rgb(252,211,77)] transition-all duration-150 rounded relative">
                             <input wire:model="taskDefaultLanguage" type="radio" id="{{$key}}" value="{{$key}}" class="appearance-none peer"/>
                             <label for="{{$key}}"
-                                   class="cursor-pointer p-1 rounded flex flex-row justify-center px-3 select-none text-white transition-all duration-150 peer-checked:text-yellow-300">{{ucwords($language)}}</label>
+                                   class="cursor-pointer p-1 rounded flex flex-row justify-center px-3 select-none text-white transition-all duration-150 peer-checked:text-yellow-300">{{__(ucwords($language))}}</label>
                             <div class="absolute w-full h-full rounded peer-checked:shadow-[-4px_4px_0px_rgb(252,211,77)] pointer-events-none transition-all duration-300"></div>
                         </div>
                     @endforeach
@@ -90,7 +90,7 @@
                         <div class="flex items-center w-full">
                             <label for="input-{{$key}}"
                                    class="px-3 cursor-pointer text-white bg-blue-500 h-8 rounded-l flex justify-center items-center">
-                                <span>{{__(ucwords($languages[$key]))}}</span>
+                                <span>{{__(ucwords(\App\Models\Language::KEYS_AND_NAMES[$key]))}}</span>
                             </label>
                             <input type="text" id="input-{{$key}}" wire:model="resources.{{$key}}" placeholder="https://www.google.com"
                                    class="w-full h-8 px-2 rounded-r border-r-2 border-t-2 border-b-2 border-blue-500 focus:outline-yellow-400"/>
@@ -99,8 +99,6 @@
                     @error('resources.'.$input) <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                 @endforeach
             </div>
-
-
         </div>
         <div class="text-center">
             <button type="submit" class="bg-yellow-500 hover:shadow-[-4px_4px_0px_rgb(59,130,246)] rounded text-white px-6 md:px-12 py-2 font-medium transition-all duration-150">

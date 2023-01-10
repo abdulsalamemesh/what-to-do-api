@@ -17,19 +17,9 @@ class WhatToDo extends Component
     public array $selectedCosts = ['free'];
     public array $selectedPersons = [1];
     public array $selectedCategories = ['staying busy'];
-    public array $languages;
 
     public function mount()
     {
-        $this->languages = [
-            'en-US' => __('english'),
-            'de'    => __('german'),
-            'es'    => __('spanish'),
-            'fr'    => __('french'),
-            'it'    => __('italian'),
-            'tr'    => __('turkish'),
-            'uk'    => __('ukrainian'),
-        ];
         $this->task = Task::query()->where(function (Builder $eloquentBuilder) {
             $eloquentBuilder->whereIn('cost', $this->selectedCosts)
                 ->whereIn('person', $this->selectedPersons)

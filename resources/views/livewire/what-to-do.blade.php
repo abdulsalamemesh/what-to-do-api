@@ -21,7 +21,7 @@
                         @elseif(count($selectedLanguages) == 0)
                             <br>
                             @forelse($task->task as $language => $text)
-                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst(\App\Models\Language::KEYS_AND_NAMES[$language]))}}:</span>
                                 {{$text}}
                                 <br>
                             @empty
@@ -29,7 +29,7 @@
                         @else
                             <br>
                             @forelse($selectedLanguages as $language)
-                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst(\App\Models\Language::KEYS_AND_NAMES[$language]))}}:</span>
                                 {{$task->task[$language]}}
                                 <br>
                             @empty
@@ -46,7 +46,7 @@
                         @elseif(count($selectedLanguages) == 0)
                             <br>
                             @forelse($task->links as $language => $link)
-                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst(\App\Models\Language::KEYS_AND_NAMES[$language]))}}:</span>
                                 <a class="text-blue-500 hover:text-blue-600" href="{{$link}}" target="_blank">{{$link}}</a>
                                 <br>
                             @empty
@@ -54,7 +54,7 @@
                         @else
                             <br>
                             @forelse($selectedLanguages as $language)
-                                <span class="font-medium text-gray-700">{{__(ucfirst($languages[$language]))}}:</span>
+                                <span class="font-medium text-gray-700">{{__(ucfirst(\App\Models\Language::KEYS_AND_NAMES[$language]))}}:</span>
                                 <a class="text-blue-500 hover:text-blue-600" href="{{$task->links[$language]}}" target="_blank">{{$task->links[$language]}}</a>
                                 <br>
                             @empty
@@ -71,7 +71,7 @@
             <div>
                 <p class="font-medium">{{__('Language')}}</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5 mt-1">
-                    @foreach($languages as $key => $language)
+                    @foreach(\App\Models\Language::KEYS_AND_NAMES as $key => $language)
                         <div
                             class="flex flex-col justify-between bg-blue-500 hover:bg-blue-600 hover:shadow-[-4px_4px_0px_rgb(252,211,77)] transition-all duration-150 rounded relative">
                             <input wire:model="selectedLanguages" type="checkbox" id="{{$key}}" value="{{$key}}" class="appearance-none peer"/>

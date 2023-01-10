@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Language;
 use App\Models\Task;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -14,8 +15,6 @@ use Illuminate\Support\Arr;
 class CreateTaskJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    public array $supportedLanguages = ['en-US', 'de', 'es', 'fr', 'it', 'ru', 'tr', 'uk',];
 
     /**
      * Create a new job instance.
@@ -37,7 +36,7 @@ class CreateTaskJob implements ShouldQueue
         $translations = [];
         $translator = new \DeepL\Translator(env('DEEPL_API_KEY'));
 
-        foreach ($this->supportedLanguages as $supportedLanguage) {
+        foreach (Language::KEYS as $supportedLanguage) {
             if ($supportedLanguage == Arr::get($this->data, 'textLanguage')) {
                 $translations[$supportedLanguage] = Arr::get($this->data, 'task');
                 continue;
