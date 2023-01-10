@@ -25,10 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (App::getLocale() === 'en'){
-            View::share('currentLocal', 'de');
-        }else{
-            View::share('currentLocal', 'en');
-        }
+        //
     }
 }
