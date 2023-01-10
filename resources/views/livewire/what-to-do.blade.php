@@ -1,7 +1,7 @@
 <div class="container mx-auto py-8 md:py-12 lg:w-8/12 xl:w-1/2">
     <div class="bg-white px-4 py-8 md:py-12 md:rounded shadow flex flex-col items-center space-y-4 md:space-y-12">
         <div class="font-semibold text-center text-xl md:text-2xl">
-            <p>What to do?</p>
+            <p>{{__('What to do?')}}</p>
             <p> &#128161; {{__('Oh... Let\'s find you something to do!')}}</p>
             <div class="flex justify-center md:pt-8 col-span-2">
                 <button class="bg-yellow-500 hover:shadow-[-4px_4px_0px_rgb(59,130,246)] rounded text-white px-6 md:px-12 py-2 font-medium"

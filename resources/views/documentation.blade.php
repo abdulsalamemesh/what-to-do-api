@@ -1,14 +1,14 @@
 <x-app-layout>
     <div class="bg-white lg:rounded-md p-3 shadow lg:shadow fixed left-0 right-0 lg:left-4 lg:right-auto lg:top-1/2 lg:-translate-y-1/2 left-4 block">
-        <div class="space-x-6 lg:space-x-0 lg:space-y-1 text-sm flex flex-wrap lg:flex-col lg:flex-nowrap justify-center">
-            <p class="font-medium border-b text-base pb-2 text-center hidden lg:block">Documentation</p>
-            <a class="block hover:text-blue-500 font-medium" href="#general">&#x2022 General Information</a>
-            <a class="block hover:text-blue-500 font-medium" href="#random">&#x2022 Random</a>
-            <a class="block hover:text-blue-500 font-medium" href="#language">&#x2022 Language</a>
-            <a class="block hover:text-blue-500 font-medium" href="#identifier">&#x2022 Identifier</a>
-            <a class="block hover:text-blue-500 font-medium" href="#category">&#x2022 Category</a>
-            <a class="block hover:text-blue-500 font-medium" href="#person">&#x2022 Person</a>
-            <a class="block hover:text-blue-500 font-medium" href="#cost">&#x2022 Cost</a>
+        <div class="space-x-6 lg:space-x-0 lg:space-y-1 text-sm font-medium flex flex-wrap lg:flex-col lg:flex-nowrap justify-center">
+            <p class="font-medium border-b text-base pb-2 text-center hidden lg:block">{{__('Documentation')}}</p>
+            <a class="block hover:text-blue-500" href="#general">&#x2022 {{__('General Information')}}</a>
+            <a class="block hover:text-blue-500" href="#random">&#x2022 Random</a>
+            <a class="block hover:text-blue-500" href="#language">&#x2022 Language</a>
+            <a class="block hover:text-blue-500" href="#identifier">&#x2022 Identifier</a>
+            <a class="block hover:text-blue-500" href="#category">&#x2022 Category</a>
+            <a class="block hover:text-blue-500" href="#person">&#x2022 Person</a>
+            <a class="block hover:text-blue-500" href="#cost">&#x2022 Cost</a>
         </div>
 
     </div>
@@ -39,7 +39,7 @@
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Base url for your query requests')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                         {{env('APP_URL')}}/api/v1
                                     </p>
                                     <button type="button" data-clipboard-text="{{env('APP_URL')}}/api/v1"
@@ -73,8 +73,8 @@
                                         <td class="py-2 px-3 border border-gray-200 text-base">
                                             {{__('Default value is an object with the keys of the supported languages.')}} <br>
                                             {{__('Example:')}} <br>
-                                            <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                            <div class="w-full bg-gray-50 border border-gray-200 relative group text-sm">
+                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                                     { <br>
                                                     &nbsp;&nbsp;&nbsp;"en-US" : "{{__('Default text of the task')}}",<br>
                                                     &nbsp;&nbsp;&nbsp;"de" : ""<br>
@@ -148,8 +148,8 @@
                                         <td class="py-2 px-3 border border-gray-200 text-base">
                                             {{__('Default value is an object with the keys of the supported languages.')}} <br><br>
                                             {{__('Example:')}} <br>
-                                            <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                            <div class="w-full bg-gray-50 border border-gray-200 relative group text-sm">
+                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                                     { <br>
                                                     &nbsp;&nbsp;&nbsp;"en-US" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"de" : ""<br>
@@ -188,7 +188,7 @@
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Supported languages:')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                         "en-US" : "{{ucfirst('english')}}", <br>
                                         "de" : "{{ucfirst('german')}}", <br>
                                         "es" : "{{ucfirst('spanish')}}", <br>
@@ -251,7 +251,7 @@
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                             /task
                                         </p>
                                         <button type="button" data-clipboard-text="/task"
@@ -266,8 +266,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group text-sm">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 ">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "49f10d",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -358,7 +358,7 @@
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                             /task?language=en-US
                                         </p>
                                         <button type="button" data-clipboard-text="/task?language=en-US"
@@ -374,7 +374,7 @@
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "49f10d",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : "Play a game of Monopoly"<br>
@@ -431,7 +431,7 @@
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                             /task?identifier=89ref7
                                         </p>
                                         <button type="button" data-clipboard-text="/task?identifier=89ref7"
@@ -447,7 +447,7 @@
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "89ref7",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -538,7 +538,7 @@
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                             /task?category=learn
                                         </p>
                                         <button type="button" data-clipboard-text="/task?category=learn"
@@ -554,7 +554,7 @@
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "i85f65",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -644,7 +644,7 @@
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                             /task?person=2
                                         </p>
                                         <button type="button" data-clipboard-text="/task?person=2"
@@ -660,7 +660,7 @@
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "42168d",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -751,7 +751,7 @@
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
                                     <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                             /task?cost=$$$
                                         </p>
                                         <button type="button" data-clipboard-text="/task?cost=$$$"
@@ -767,7 +767,7 @@
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "4c8048",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
