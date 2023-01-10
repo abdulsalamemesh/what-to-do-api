@@ -28,6 +28,11 @@ class TaskController extends Controller
             ], 422);
         }
 
+        if ($request->query->has('language') && !in_array($request->query->get('language'), ['en-US', 'de', 'es', 'fr', 'it', 'tr', 'uk'])) {
+            return response([
+                'error' => 'the selected language is unsupported'
+            ], 422);
+        }
         $query = \App\Models\Task::query()->inRandomOrder()->where(function ($builder) use ($request) {
             if ($request->query->has('identifier')) {
                 $builder->where('identifier', $request->query->get('identifier'));
