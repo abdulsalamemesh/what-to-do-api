@@ -36,7 +36,6 @@ class Create extends Component
             'es'    => __('spanish'),
             'fr'    => __('french'),
             'it'    => __('italian'),
-            'ru'    => __('russian'),
             'tr'    => __('turkish'),
             'uk'    => __('ukrainian'),
         ];
@@ -46,7 +45,6 @@ class Create extends Component
             'es'    => '',
             'fr'    => '',
             'it'    => '',
-            'ru'    => '',
             'tr'    => '',
             'uk'    => '',
         ];

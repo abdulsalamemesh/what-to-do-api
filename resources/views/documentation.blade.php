@@ -81,7 +81,6 @@
                                                     &nbsp;&nbsp;&nbsp;"es" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"fr" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"ru" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"tr" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"uk" : ""<br>
                                                     }<br>
@@ -92,12 +91,12 @@
                                                 "es" : "",
                                                 "fr" : "",
                                                 "it" : "",
-                                                "ru" : "",
                                                 "tr" : "",
                                                 "uk" : ""
                                                 }
                                                     ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                         class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
                                                         <path
                                                             d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/>
                                                     </svg>
@@ -125,7 +124,8 @@
                                         <td class="py-2 px-3 border border-gray-200 text-base">Integer</td>
                                         <td class="py-2 px-3 border border-gray-200 text-base">
                                             {{__('Number of people needed for the task.')}} <br>
-                                            {{__('Default:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Min:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Max:')}} <span
+                                            {{__('Default:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Min:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Max:')}}
+                                            <span
                                                 class="bg-gray-100 px-2 select-all">10</span>
                                         </td>
                                     </tr>
@@ -138,7 +138,7 @@
                                                 @foreach(['free','$','$$','$$$'] as $cost)
                                                     <span class="bg-gray-100 px-2 select-all">{{$cost}}</span>
                                                 @endforeach.
-                                                    {{__('Default is')}} <span class="bg-gray-100 px-2 select-all">free</span>
+                                                {{__('Default is')}} <span class="bg-gray-100 px-2 select-all">free</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -156,7 +156,6 @@
                                                     &nbsp;&nbsp;&nbsp;"es" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"fr" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"ru" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"tr" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"uk" : ""<br>
                                                     }<br>
@@ -167,12 +166,12 @@
                                                 "es" : "",
                                                 "fr" : "",
                                                 "it" : "",
-                                                "ru" : "",
                                                 "tr" : "",
                                                 "uk" : ""
                                                 }
                                                     ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                         class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
                                                         <path
                                                             d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/>
                                                     </svg>
@@ -194,7 +193,6 @@
                                         "es" : "{{ucfirst('spanish')}}", <br>
                                         "fr" : "{{ucfirst('french')}}", <br>
                                         "it" : "{{ucfirst('italian')}}", <br>
-                                        "ru" : "{{ucfirst('russian')}}", <br>
                                         "tr" : "{{ucfirst('turkish')}}", <br>
                                         "uk" : "{{ucfirst('ukrainian')}}" <br>
                                     </p>
@@ -203,7 +201,6 @@
                                     "es" : "Spanish",
                                     "fr" : "French",
                                     "it" : "Italian",
-                                    "ru" : "Russian",
                                     "tr" : "Turkish",
                                     "uk" : "Ukrainian"
                                     ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
@@ -288,7 +285,6 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"es" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ru" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uk" : "",<br>
                                         &nbsp;&nbsp;&nbsp;},<br>
@@ -314,7 +310,6 @@
                                         "es" : "",
                                         "fr" : "",
                                         "it" : "",
-                                        "ru" : "",
                                         "tr" : "",
                                         "uk" : "",
                                         },
@@ -468,7 +463,6 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"es" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ru" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uk" : "",<br>
                                         &nbsp;&nbsp;&nbsp;},<br>
@@ -494,7 +488,6 @@
                                         "es" : "",
                                         "fr" : "",
                                         "it" : "",
-                                        "ru" : "",
                                         "tr" : "",
                                         "uk" : "",
                                         },
@@ -575,7 +568,6 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"es" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ru" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uk" : "",<br>
                                         &nbsp;&nbsp;&nbsp;},<br>
@@ -601,7 +593,6 @@
                                         "es" : "",
                                         "fr" : "",
                                         "it" : "",
-                                        "ru" : "",
                                         "tr" : "",
                                         "uk" : "",
                                         },
@@ -682,7 +673,6 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"es" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ru" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uk" : "",<br>
                                         &nbsp;&nbsp;&nbsp;},<br>
@@ -708,7 +698,6 @@
                                             "es" : "",
                                             "fr" : "",
                                             "it" : "",
-                                            "ru" : "",
                                             "tr" : "",
                                             "uk" : "",
                                             },
@@ -789,7 +778,6 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"es" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ru" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tr" : "",<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uk" : "",<br>
                                         &nbsp;&nbsp;&nbsp;},<br>
@@ -815,7 +803,6 @@
                                         "es" : "",
                                         "fr" : "",
                                         "it" : "",
-                                        "ru" : "",
                                         "tr" : "",
                                         "uk" : "",
                                         },
