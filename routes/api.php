@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::prefix('v1')->group(function() {
-    Route::get('task', \App\Http\Controllers\API\V1\TaskController::class)->name('task');
+Route::prefix('v1')->group(function () {
+    Route::get('task', [\App\Http\Controllers\API\V1\TaskController::class,'task'])->name('task');
+    Route::post('task/create', [\App\Http\Controllers\API\V1\TaskController::class,'create'])->name('task.create');
 });
