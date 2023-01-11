@@ -31,4 +31,5 @@ Route::get('setLocal/{locale}', function ($locale) {
 Route::get('/', HomeController::class)->name('home');
 Route::resource('/tasks', TaskController::class)->only('create');
 Route::get('/documentation', DocumentationController::class)->name('documentation');
+Route::view('/about', 'about')->name('about');
 

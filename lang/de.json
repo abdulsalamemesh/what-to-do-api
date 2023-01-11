@@ -53,8 +53,7 @@
     "Get a task which is in the specified people count": "Eine Aufgabe finden, die sich in der angegebenen Personenzahl befindet",
     "Get a task which is in the specified cost": "Eine Aufgabe finden, die in den angegebenen Kosten liegt",
     "Home": "Startseite",
-    "Add": "Aufgabe hinfügen",
-    "Docs": "Dokumentation",
+    "Contributing": "Beitragen",
     "All rights reserved": "Alle Rechte vorbehalten",
     "Do you have a task in mind, but you can not find it?": "Denkst du an eine Aufgabe, was du hier nicht findest?",
     "You're welcome to add it to the API.": "Du kannst sie gerne zur API hinzufügen.",
@@ -72,5 +71,6 @@
     "Oh... Let's find you something to do!": "Oh... Lass uns etwas für dich finden!",
     "Get me a Task": "Gib mir eine Aufgabe",
     "People": "Leute",
-    "Oh... we couldn't find anything this time. Try other filters": "Oh... wir konnten dieses Mal nichts finden. Versuche andere Filtern"
+    "Oh... we couldn't find anything this time. Try other filters": "Oh... wir konnten dieses Mal nichts finden. Versuche andere Filtern",
+    "Imprint": "Impressum"
 }
