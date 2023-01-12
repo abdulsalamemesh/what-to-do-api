@@ -21,7 +21,26 @@
     <meta name="msapplication-TileImage" content="{{asset('favicon/ms-icon-144x144.png')}}">
     <meta name="theme-color" content="#ffffff">
     <title>What To Do API</title>
+    <script type="text/javascript">
 
+        function UnCryptMailto(s) {
+            var n = 0;
+            var r = "";
+            for (var i = 0; i < s.length; i++) {
+                n = s.charCodeAt(i);
+                if (n >= 8364) {
+                    n = 128;
+                }
+                r += String.fromCharCode(n - (1));
+            }
+            return r;
+        }
+
+        function linkTo_UnCryptMailto(s) {
+            location.href = UnCryptMailto(s);
+        }
+
+    </script>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @livewireStyles
@@ -154,7 +173,7 @@
 <footer>
     <p class="p-2 text-center border-t bg-white text-gray-700 text-sm font-medium">
         {{__('All rights reserved')}} - &#128161; What To Do <span class="text-blue-500">API</span> - <a class="text-blue-500 hover:text-blue-600"
-                                                                                                         href="{{route('about')}}">{{__('About and Imprint')}}</a>
+                                                                                                         href="{{route('about')}}">{{__('About & Imprint')}}</a>
     </p>
 </footer>
 

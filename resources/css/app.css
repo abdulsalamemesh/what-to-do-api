@@ -126,3 +126,7 @@
     font-family: poppins, 'sans-serif';
     scroll-behavior: smooth;
 }
+.encrypt-email {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}

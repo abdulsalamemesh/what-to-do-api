@@ -7,29 +7,37 @@
     "file": "assets/Poppins-Regular.707fdc5c.ttf",
     "src": "public/fonts/poppins/Poppins-Regular.ttf"
   },
-  "public/fonts/poppins/Poppins-Light.ttf": {
-    "file": "assets/Poppins-Light.647f014d.ttf",
-    "src": "public/fonts/poppins/Poppins-Light.ttf"
-  },
   "public/fonts/poppins/Poppins-ExtraLight.ttf": {
     "file": "assets/Poppins-ExtraLight.60c4bb1b.ttf",
     "src": "public/fonts/poppins/Poppins-ExtraLight.ttf"
+  },
+  "public/fonts/poppins/Poppins-Light.ttf": {
+    "file": "assets/Poppins-Light.647f014d.ttf",
+    "src": "public/fonts/poppins/Poppins-Light.ttf"
   },
   "public/fonts/poppins/Poppins-Medium.ttf": {
     "file": "assets/Poppins-Medium.8d909883.ttf",
     "src": "public/fonts/poppins/Poppins-Medium.ttf"
   },
-  "public/fonts/poppins/Poppins-Bold.ttf": {
-    "file": "assets/Poppins-Bold.7219547e.ttf",
-    "src": "public/fonts/poppins/Poppins-Bold.ttf"
+  "public/fonts/poppins/Poppins-ExtraBold.ttf": {
+    "file": "assets/Poppins-ExtraBold.94a215f8.ttf",
+    "src": "public/fonts/poppins/Poppins-ExtraBold.ttf"
   },
   "public/fonts/poppins/Poppins-SemiBold.ttf": {
     "file": "assets/Poppins-SemiBold.248c0244.ttf",
     "src": "public/fonts/poppins/Poppins-SemiBold.ttf"
   },
+  "public/fonts/poppins/Poppins-Bold.ttf": {
+    "file": "assets/Poppins-Bold.7219547e.ttf",
+    "src": "public/fonts/poppins/Poppins-Bold.ttf"
+  },
   "public/fonts/poppins/Poppins-Black.ttf": {
     "file": "assets/Poppins-Black.291e4388.ttf",
     "src": "public/fonts/poppins/Poppins-Black.ttf"
+  },
+  "public/fonts/poppins/Poppins-LightItalic.ttf": {
+    "file": "assets/Poppins-LightItalic.6d00aa55.ttf",
+    "src": "public/fonts/poppins/Poppins-LightItalic.ttf"
   },
   "public/fonts/poppins/Poppins-ThinItalic.ttf": {
     "file": "assets/Poppins-ThinItalic.043226b0.ttf",
@@ -39,9 +47,9 @@
     "file": "assets/Poppins-ExtraLightItalic.05418f4d.ttf",
     "src": "public/fonts/poppins/Poppins-ExtraLightItalic.ttf"
   },
-  "public/fonts/poppins/Poppins-ExtraBold.ttf": {
-    "file": "assets/Poppins-ExtraBold.94a215f8.ttf",
-    "src": "public/fonts/poppins/Poppins-ExtraBold.ttf"
+  "public/fonts/poppins/Poppins-MediumItalic.ttf": {
+    "file": "assets/Poppins-MediumItalic.449f6bd9.ttf",
+    "src": "public/fonts/poppins/Poppins-MediumItalic.ttf"
   },
   "public/fonts/poppins/Poppins-SemiBoldItalic.ttf": {
     "file": "assets/Poppins-SemiBoldItalic.74b31cbc.ttf",
@@ -51,21 +59,13 @@
     "file": "assets/Poppins-ExtraBoldItalic.bba986e1.ttf",
     "src": "public/fonts/poppins/Poppins-ExtraBoldItalic.ttf"
   },
-  "public/fonts/poppins/Poppins-LightItalic.ttf": {
-    "file": "assets/Poppins-LightItalic.6d00aa55.ttf",
-    "src": "public/fonts/poppins/Poppins-LightItalic.ttf"
+  "public/fonts/poppins/Poppins-BlackItalic.ttf": {
+    "file": "assets/Poppins-BlackItalic.a5e3e31e.ttf",
+    "src": "public/fonts/poppins/Poppins-BlackItalic.ttf"
   },
   "public/fonts/poppins/Poppins-BoldItalic.ttf": {
     "file": "assets/Poppins-BoldItalic.9d4d9f3c.ttf",
     "src": "public/fonts/poppins/Poppins-BoldItalic.ttf"
-  },
-  "public/fonts/poppins/Poppins-MediumItalic.ttf": {
-    "file": "assets/Poppins-MediumItalic.449f6bd9.ttf",
-    "src": "public/fonts/poppins/Poppins-MediumItalic.ttf"
-  },
-  "public/fonts/poppins/Poppins-BlackItalic.ttf": {
-    "file": "assets/Poppins-BlackItalic.a5e3e31e.ttf",
-    "src": "public/fonts/poppins/Poppins-BlackItalic.ttf"
   },
   "resources/js/app.js": {
     "file": "assets/app.739c58d4.js",
@@ -73,7 +73,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.5e7f570f.css",
+    "file": "assets/app.d21733b4.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }
