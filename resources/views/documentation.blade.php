@@ -1,17 +1,35 @@
 <x-app-layout>
-    <div class="bg-white lg:rounded-md p-3 shadow lg:shadow fixed left-0 right-0 lg:left-4 lg:right-auto lg:top-1/2 lg:-translate-y-1/2 left-4 block">
-        <div class="space-x-6 lg:space-x-0 lg:space-y-1 text-sm font-medium flex flex-wrap lg:flex-col lg:flex-nowrap justify-center">
-            <p class="font-medium border-b text-base pb-2 text-center hidden lg:block">{{__('Documentation')}}</p>
-            <a class="block hover:text-blue-500" href="#general">&#x2022 {{__('General Information')}}</a>
-            <a class="block hover:text-blue-500" href="#random">&#x2022 Random</a>
-            <a class="block hover:text-blue-500" href="#language">&#x2022 Language</a>
-            <a class="block hover:text-blue-500" href="#identifier">&#x2022 Identifier</a>
-            <a class="block hover:text-blue-500" href="#category">&#x2022 Category</a>
-            <a class="block hover:text-blue-500" href="#person">&#x2022 Person</a>
-            <a class="block hover:text-blue-500" href="#cost">&#x2022 Cost</a>
-        </div>
 
+    <div class="fixed z-50 top-1/4 -translate-y-1/2  flex items-start space-x-2 transition-all duration-150" :class="open? 'left-2':'-left-60'" x-data="{open:false}">
+        <div class="w-56 bg-white rounded-md p-3 shadow shadow block ml-2">
+            <div class="space-y-1 text-sm font-medium flex flex-col ">
+                <p class="font-medium border-b text-base pb-2 text-center">{{__('Documentation')}}</p>
+                <a class="block hover:text-blue-500" href="#general">&#x2022 {{__('General Information')}}</a>
+                <a class="block hover:text-blue-500" href="#random">&#x2022 Random</a>
+                <a class="block hover:text-blue-500" href="#language">&#x2022 Language</a>
+                <a class="block hover:text-blue-500" href="#identifier">&#x2022 Identifier</a>
+                <a class="block hover:text-blue-500" href="#category">&#x2022 Category</a>
+                <a class="block hover:text-blue-500" href="#person">&#x2022 Person</a>
+                <a class="block hover:text-blue-500" href="#cost">&#x2022 Cost</a>
+            </div>
+        </div>
+        <button @click="open = !open" class="p-2 bg-white rounded-md p-3 shadow-md max-h-fit hover:bg-blue-100">
+            <span x-show="!open">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-6 w-6 text-blue-500 fill-current">
+                        <path
+                            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                    </svg>
+            </span>
+            <span x-show="open">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="h-6 w-6 text-blue-500 fill-current">
+                    <path
+                        d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
+                </svg>
+            </span>
+
+        </button>
     </div>
+
     <div id="general" class="py-24 w-full bg-blue-100 flex justify-center items-center">
         <p class="font-medium text-3xl text-center">{{__('Documentation')}}</p>
     </div>
@@ -38,8 +56,8 @@
                         <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Base url for your query requests')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         {{env('APP_URL')}}/api/v1
                                     </p>
                                     <button type="button" data-clipboard-text="{{env('APP_URL')}}/api/v1"
@@ -56,25 +74,25 @@
                                 <table class="w-full border-collapse border border-gray-200">
                                     <thead class="bg-gray-50 text-left">
                                     <tr>
-                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">{{__('Attribute')}}</th>
-                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">{{__('Type')}}</th>
-                                        <th class="py-2 px-3 border border-gray-200 text-base font-medium">{{__('Description')}}</th>
+                                        <th class="p-1 md:py-2 md:px-3 border border-gray-200 text-base font-medium w-[1%]">{{__('Attribute')}}</th>
+                                        <th class="p-1 md:py-2 md:px-3 border border-gray-200 text-base font-medium w-[1%]">{{__('Type')}}</th>
+                                        <th class="p-1 md:py-2 md:px-3 border border-gray-200 text-base font-medium">{{__('Description')}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">identifier</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">String</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">-</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base w-[1%]">identifier</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base w-[1%]">String</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">-</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">task</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">Object/String</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">task</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Object / String</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
                                             {{__('Default value is an object with the keys of the supported languages.')}} <br>
                                             {{__('Example:')}} <br>
-                                            <div class="w-full bg-gray-50 border border-gray-200 relative group text-sm">
-                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                            <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto text-sm">
+                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                                     { <br>
                                                     &nbsp;&nbsp;&nbsp;"en-US" : "{{__('Default text of the task')}}",<br>
                                                     &nbsp;&nbsp;&nbsp;"de" : ""<br>
@@ -108,9 +126,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">category</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">String</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">category</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">String</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
                                             <div>{{__('The supported categories are:')}}</div>
                                             <div class="mt-2">
                                                 @foreach($supportedCategories as $category)
@@ -120,9 +138,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">person</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">Integer</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">person</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Integer</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
                                             {{__('Number of people needed for the task.')}} <br>
                                             {{__('Default:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Min:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Max:')}}
                                             <span
@@ -130,9 +148,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">Cost</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">String</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Cost</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">String</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
                                             <div>{{__('The supported costs are:')}}</div>
                                             <div class="mt-2">
                                                 @foreach(['free','$','$$','$$$'] as $cost)
@@ -143,13 +161,13 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">links</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">Object/String</td>
-                                        <td class="py-2 px-3 border border-gray-200 text-base">
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">links</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Object / String</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
                                             {{__('Default value is an object with the keys of the supported languages.')}} <br><br>
                                             {{__('Example:')}} <br>
-                                            <div class="w-full bg-gray-50 border border-gray-200 relative group text-sm">
-                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                            <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto text-sm">
+                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                                     { <br>
                                                     &nbsp;&nbsp;&nbsp;"en-US" : "",<br>
                                                     &nbsp;&nbsp;&nbsp;"de" : ""<br>
@@ -186,8 +204,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Supported languages:')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         "en-US" : "{{ucfirst('english')}}", <br>
                                         "de" : "{{ucfirst('german')}}", <br>
                                         "es" : "{{ucfirst('spanish')}}", <br>
@@ -247,8 +265,8 @@
                                 <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
-                                    <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                    <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                             /task
                                         </p>
                                         <button type="button" data-clipboard-text="/task"
@@ -263,8 +281,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group text-sm">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 ">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto text-sm">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words ">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "49f10d",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -352,8 +370,8 @@
                                 <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
-                                    <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                    <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                             /task?language=en-US
                                         </p>
                                         <button type="button" data-clipboard-text="/task?language=en-US"
@@ -368,8 +386,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "49f10d",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : "Play a game of Monopoly"<br>
@@ -425,8 +443,8 @@
                                 <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
-                                    <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                    <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                             /task?identifier=89ref7
                                         </p>
                                         <button type="button" data-clipboard-text="/task?identifier=89ref7"
@@ -441,8 +459,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "89ref7",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -530,8 +548,8 @@
                                 <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
-                                    <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                    <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                             /task?category=learn
                                         </p>
                                         <button type="button" data-clipboard-text="/task?category=learn"
@@ -546,8 +564,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "i85f65",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -634,8 +652,8 @@
                                 <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
-                                    <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                    <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                             /task?person=2
                                         </p>
                                         <button type="button" data-clipboard-text="/task?person=2"
@@ -650,8 +668,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "42168d",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
@@ -739,8 +757,8 @@
                                 <p class="text-sm">{{__('Query end point')}}</p>
                                 <div class="flex items-center">
                                     <label for="random" class="text-blue-500 font-medium text-lg mr-2">GET</label>
-                                    <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                    <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                        <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                             /task?cost=$$$
                                         </p>
                                         <button type="button" data-clipboard-text="/task?cost=$$$"
@@ -755,8 +773,8 @@
                             </div>
                             <div class="space-y-2">
                                 <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 text-sm">
+                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
+                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
                                         &nbsp;&nbsp;&nbsp;"identifier" : "4c8048",<br>
                                         &nbsp;&nbsp;&nbsp;"task" : {<br>
