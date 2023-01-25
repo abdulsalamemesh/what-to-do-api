@@ -47,4 +47,50 @@ class APITaskTest extends TestCase
         $this->assertTrue(Str::contains($response->collect()->get('error'), 'No task found with the specified parameters'));
     }
 
+    /** @test */
+    public function it_gets_an_error_of_unsupported_language()
+    {
+        Task::factory()->create();
+        $response = $this->get(route('task', ['language' => 'tt']));
+        $response->assertStatus(422);
+        $this->assertTrue($response->collect()->has('error'));
+        $this->assertTrue(Str::contains($response->collect()->get('error'), ['the selected language is unsupported']));
+
+    }
+    /** @test */
+    public function it_gets_a_task_with_the_defined_language()
+    {
+        $task = Task::factory()->create();
+        $response = $this->get(route('task', ['language' => 'de']));
+        $this->assertEquals($task['task']['de'],$response->collect()->get('task'));
+        $this->assertEquals($task['links']['de'],$response->collect()->get('links'));
+        $this->assertIsString($response->collect()->get('task'));
+        $this->assertIsString($response->collect()->get('links'));
+
+    }
+
+    /** @test */
+    public function it_creates_a_new_task()
+    {
+        $data = [
+            'language' => 'en-US',
+            'task'     => 'plays football',
+            'category' => 'fun',
+            'person'   => 4,
+            'cost'     => '$',
+            'links'    => [
+                'en-US' => 'https://www.google.com/',
+                'de'    => 'https://www.google.com/?hl=de'
+            ],
+        ];
+        $response = $this->post(route('task.create', $data));
+        $responseData = $response->collect();
+        $this->assertEquals($data['task'], $responseData['task'][$data['language']]);
+        $this->assertEquals($data['category'], $responseData['category']);
+        $this->assertEquals($data['person'], $responseData['person']);
+        $this->assertEquals($data['cost'], $responseData['cost']);
+        $this->assertEquals($data['links']['en-US'], $responseData['links']['en-US']);
+        $this->assertEquals($data['links']['de'], $responseData['links']['de']);
+    }
+
 }
