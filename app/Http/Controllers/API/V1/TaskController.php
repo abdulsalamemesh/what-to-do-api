@@ -87,10 +87,9 @@ class TaskController extends Controller
         $translations = TranslatorService::translate($request->get('task'), $request->get('language'));
 
         $resources = [];
-
         foreach (Language::KEYS as $supportedLanguage) {
             in_array($supportedLanguage, array_keys($request->get('links'))) ?
-                $resources[$supportedLanguage] = $request->get('links.' . $supportedLanguage) :
+                $resources[$supportedLanguage] = $request->get('links'  )[$supportedLanguage] :
                 $resources[$supportedLanguage] = "";
         }
 
