@@ -28,8 +28,7 @@ Route::get('setLocal/{locale}', function ($locale) {
 
     return redirect()->back();
 })->name('setLocal');
-Route::get('/', HomeController::class)->name('home');
-Route::resource('/tasks', TaskController::class)->only('create');
-Route::get('/documentation', DocumentationController::class)->name('documentation');
+Route::view('/', 'home')->name('home');
+Route::view('/tasks/create', 'tasks.create')->name('tasks.create');
+Route::view('/documentation', 'documentation')->name('documentation');
 Route::view('/about', 'about')->name('about');
-
