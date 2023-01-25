@@ -18,13 +18,13 @@ class APITaskTest extends TestCase
         Task::factory()->create();
         $response = $this->get(route('task'));
         $response->assertOk();
-        $data = collect(json_decode($response->getContent()));
+        $data = $response->collect();
         $this->assertTrue($data->has('identifier'));
         $this->assertTrue($data->has('task'));
         $this->assertTrue($data->has('category'));
         $this->assertTrue($data->has('person'));
         $this->assertTrue($data->has('cost'));
-        $this->assertTrue($data->has('link'));
+        $this->assertTrue($data->has('links'));
     }
 
     /** @test */
@@ -33,8 +33,8 @@ class APITaskTest extends TestCase
         Task::factory()->create();
         $response = $this->get(route('task', ['test' => 'sada', 'test1' => 'sada', 'test2' => 'sada']));
         $response->assertStatus(422);
-        $this->assertTrue(collect(json_decode($response->getContent()))->has('error'));
-        $this->assertTrue(Str::contains(collect(json_decode($response->getContent()))->get('error'), ['test', 'test1', 'test2']));
+        $this->assertTrue($response->collect()->has('error'));
+        $this->assertTrue(Str::contains($response->collect()->get('error'), ['test', 'test1', 'test2']));
     }
 
     /** @test */
@@ -43,8 +43,8 @@ class APITaskTest extends TestCase
         Task::factory(['identifier' => '123456'])->create();
         $response = $this->get(route('task', ['identifier' => '123']));
         $response->assertStatus(404);
-        $this->assertTrue(collect(json_decode($response->getContent()))->has('error'));
-        $this->assertTrue(Str::contains(collect(json_decode($response->getContent()))->get('error'), 'No task found with the specified parameters'));
+        $this->assertTrue($response->collect()->has('error'));
+        $this->assertTrue(Str::contains($response->collect()->get('error'), 'No task found with the specified parameters'));
     }
 
 }
