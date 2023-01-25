@@ -1,12 +1,12 @@
 <x-app-layout>
     <div x-data="{open:false}">
-        <div :class="open? 'bg-blue-500/20 fixed h-screen w-screen z-20':''">
+        <div :class="open? 'bg-blue-500/20 fixed h-screen w-screen z-20':''" @click="open = false">
         </div>
-
-        <div class="fixed z-50 top-[5rem]  flex items-start space-x-2 transition-all duration-150" :class="open? 'left-2':'left-[-14.5rem]'">
+        <div class="fixed z-50 top-[5rem] flex items-start space-x-2 transition-all duration-150" :class="open? 'left-2':'left-[-14.5rem]'">
             <div class="w-56 bg-white rounded-md p-3 shadow shadow block ml-2">
                 <div class="space-y-2 text-sm flex flex-col ">
                     <p class="font-medium border-b text-base pb-2 text-center">{{__('Documentation')}}</p>
+                    <a @click="open = false" class="block hover:text-blue-500 font-medium" href="#package">&#x2022 {{__('Client package')}}</a>
                     <a @click="open = false" class="block hover:text-blue-500 font-medium" href="#general">&#x2022 {{__('General Information')}}</a>
                     <div>
                         <a @click="open = false" class="block hover:text-blue-500 font-medium" href="#random">&#x2022 {{__('Get a Task')}}</a>
@@ -19,9 +19,7 @@
                             <a @click="open = false" class="block hover:text-blue-500" href="#cost">&#x2022 Cost</a>
                         </div>
                     </div>
-
                     <a @click="open = false" class="block hover:text-blue-500 font-medium" href="#create">&#x2022 {{__('Create a Task')}}</a>
-
                 </div>
             </div>
             <button @click="open = !open" class="p-2 bg-white rounded-md p-3 shadow-md max-h-fit">
@@ -37,17 +35,43 @@
                         d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
                 </svg>
             </span>
-
             </button>
         </div>
-
     </div>
-
-    <div id="general" class="py-24 w-full bg-blue-100 flex justify-center items-center">
+    <div id="package" class="py-24 w-full bg-blue-100 flex justify-center items-center">
         <p class="font-medium text-3xl text-center">{{__('Documentation')}}</p>
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-4 lg:px-6">
+            <div class="md:grid md:grid-cols-4 md:gap-6">
+                <div class="md:col-span-1">
+                    <div class="px-4 sm:px-0">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">{{__('Client package')}}</h3>
+                        <p class="mt-1 text-sm text-gray-600">
+                            {{__('A Laravel package for easy implementation')}}
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-5 md:col-span-3 md:mt-0">
+                    <div class="shadow sm:overflow-hidden sm:rounded-md">
+                        <div class="bg-gray-50 px-4 py-3 sm:px-6">
+                            <p class="font-medium text-lg">{{__('Client package')}}</p>
+                        </div>
+                        <div class="space-y-4 bg-white px-4 py-5 sm:p-6">
+                            <div class="space-y-4">
+                                <p class="text-sm">{{__('The easiest way to implement the api is to use our what to do api client package.')}}</p>
+                                <p class="text-sm">{{__('You can find the documentation for the package on github')}}</p>
+                                <a class="text-sm block text-blue-500 hover:text-blue-600" href="https://github.com/abdulsalamemesh/what-to-do-api-client" target="_blank">https://github.com/abdulsalamemesh/what-to-do-api-client</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="general" class="px-4 sm:px-0" aria-hidden="true">
+                <div class="py-5">
+                    <div class="border-t border-gray-200"></div>
+                </div>
+            </div>
             <div class="md:grid md:grid-cols-4 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
@@ -144,7 +168,7 @@
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
                                             <div>{{__('The supported categories are:')}}</div>
                                             <div class="mt-2">
-                                                @foreach($supportedCategories as $category)
+                                                @foreach(\App\Enums\CategoriesEnum::values() as $category)
                                                     <span class="bg-gray-100 px-2 select-all">{{$category}}</span>
                                                 @endforeach
                                             </div>
@@ -293,7 +317,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Response')}}</p>
+                                <p class="text-sm">{{__('Response (JSON)')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto text-sm">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words ">
                                         { <br>
@@ -398,7 +422,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Response')}}</p>
+                                <p class="text-sm">{{__('Response (JSON)')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
@@ -471,7 +495,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Response')}}</p>
+                                <p class="text-sm">{{__('Response (JSON)')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
@@ -576,7 +600,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Response')}}</p>
+                                <p class="text-sm">{{__('Response (JSON)')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
@@ -680,7 +704,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Response')}}</p>
+                                <p class="text-sm">{{__('Response (JSON)')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
@@ -785,7 +809,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Response')}}</p>
+                                <p class="text-sm">{{__('Response (JSON)')}}</p>
                                 <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
                                     <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                         { <br>
@@ -890,7 +914,7 @@
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Post data')}}</p>
+                                <p class="text-sm">{{__('Post data (JSON)')}}</p>
                                 <table class="w-full border-collapse border border-gray-200">
                                     <thead class="bg-gray-50 text-left">
                                     <tr>
@@ -901,57 +925,34 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base w-[1%]">identifier</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base w-[1%]">language</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base w-[1%]">String</td>
-                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">-</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
+                                            <div>
+                                                {{__('The language in which the text of the task is written with.')}} <br>
+                                                {{__('The language must be one of the supported languages:')}}
+                                            </div>
+                                            <div class="mt-2">
+                                                @foreach(\App\Models\Language::KEYS as $language)
+                                                    <span class="bg-gray-100 px-2 select-all">{{$language}}</span>
+                                                @endforeach
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">task</td>
-                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Object / String</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">String</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
-                                            {{__('Default value is an object with the keys of the supported languages.')}} <br>
-                                            {{__('Example:')}} <br>
-                                            <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto text-sm">
-                                                <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
-                                                    { <br>
-                                                    &nbsp;&nbsp;&nbsp;"en-US" : "{{__('Default text of the task')}}",<br>
-                                                    &nbsp;&nbsp;&nbsp;"de" : ""<br>
-                                                    &nbsp;&nbsp;&nbsp;"es" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"fr" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"tr" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"uk" : ""<br>
-                                                    }<br>
-                                                </p>
-                                                <button type="button" data-clipboard-text='   {
-                                                "en-US" : "Default text of the task",
-                                                "de" : ""
-                                                "es" : "",
-                                                "fr" : "",
-                                                "it" : "",
-                                                "tr" : "",
-                                                "uk" : ""
-                                                }
-                                                    ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                                                         class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
-                                                        <path
-                                                            d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <br>
-                                            {{__('The key "en-US" always has a value')}} <br>
-                                            {{__('If the language query parameter was defined the task will have only the text of theis language')}}
+                                            {{__('The text of the language.')}} <br>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">category</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">String</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
-                                            <div>{{__('The supported categories are:')}}</div>
+                                            <div>The category of the task must be one of the supported categories:</div>
                                             <div class="mt-2">
-                                                @foreach($supportedCategories as $category)
+                                                @foreach(\App\Enums\CategoriesEnum::values() as $category)
                                                     <span class="bg-gray-100 px-2 select-all">{{$category}}</span>
                                                 @endforeach
                                             </div>
@@ -962,7 +963,7 @@
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Integer</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
                                             {{__('Number of people needed for the task.')}} <br>
-                                            {{__('Default:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Min:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Max:')}}
+                                            {{__('Min:')}} <span class="bg-gray-100 px-2 select-all">1</span>, {{__('Max:')}}
                                             <span
                                                 class="bg-gray-100 px-2 select-all">10</span>
                                         </td>
@@ -971,41 +972,31 @@
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Cost</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">String</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
-                                            <div>{{__('The supported costs are:')}}</div>
+                                            <div>{{__('One of the supported costs.')}} {{__('The supported costs are:')}}</div>
                                             <div class="mt-2">
                                                 @foreach(['free','$','$$','$$$'] as $cost)
                                                     <span class="bg-gray-100 px-2 select-all">{{$cost}}</span>
                                                 @endforeach.
-                                                {{__('Default is')}} <span class="bg-gray-100 px-2 select-all">free</span>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">links</td>
-                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Object / String</td>
+                                        <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">Object</td>
                                         <td class="p-1 md:py-2 md:px-3 border border-gray-200 text-base">
-                                            {{__('Default value is an object with the keys of the supported languages.')}} <br><br>
+                                            {{__('An object with the languages of the links as keys and the values are the links. The keys musst be from the supported languages.')}}
+                                            <br>
                                             {{__('Example:')}} <br>
                                             <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto text-sm">
                                                 <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
                                                     { <br>
-                                                    &nbsp;&nbsp;&nbsp;"en-US" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"de" : ""<br>
-                                                    &nbsp;&nbsp;&nbsp;"es" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"fr" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"tr" : "",<br>
-                                                    &nbsp;&nbsp;&nbsp;"uk" : ""<br>
+                                                    &nbsp;&nbsp;&nbsp;"en-US" : "https://www.deutschland.de/en",<br>
+                                                    &nbsp;&nbsp;&nbsp;"de" : "https://www.deutschland.de/de"<br>
                                                     }<br>
                                                 </p>
                                                 <button type="button" data-clipboard-text='  {
-                                                "en-US" : "",
-                                                "de" : ""
-                                                "es" : "",
-                                                "fr" : "",
-                                                "it" : "",
-                                                "tr" : "",
-                                                "uk" : ""
+                                                "en-US" : "https://www.deutschland.de/en",
+                                                "de" : "https://www.deutschland.de/de"
                                                 }
                                                     ' class="clipboard  p-2 bg-gray-50 absolute top-0 right-0">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -1015,74 +1006,14 @@
                                                     </svg>
                                                 </button>
                                             </div>
-                                            <br>
-                                            {{__('If the language query parameter was defined the task will have only the link of this language.')}}
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="space-y-2">
-                                <p class="text-sm">{{__('Response')}}</p>
-                                <div class="w-full bg-gray-50 border border-gray-200 relative group overflow-x-auto">
-                                    <p class="grow bg-gray-50 text-gray-700 border-gray-200 flex items-center cursor-text py-1 pl-2 break-words text-sm">
-                                        { <br>
-                                        &nbsp;&nbsp;&nbsp;"identifier" : "4c8048",<br>
-                                        &nbsp;&nbsp;&nbsp;"task" : {<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"en-US" : "Go see a Broadway production", <br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"de" : "Sieh dir eine Broadway-Produktion an", <br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"es" : "Ve a ver una producció de Broadway", <br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fr" : "Va voir une production de Broadway", <br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"it" : "Vai a vedere una produzione di Broadway", <br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tr" : "Bir Broadway prodüksiyonu izlemeye gidin", <br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uk" : "Відвідати бродвейську виставу" <br>
-
-                                        &nbsp;&nbsp;&nbsp;},<br>
-                                        &nbsp;&nbsp;&nbsp;"category" : "fun",<br>
-                                        &nbsp;&nbsp;&nbsp;"person" : 4,<br>
-                                        &nbsp;&nbsp;&nbsp;"cost" : "$$$",<br>
-                                        &nbsp;&nbsp;&nbsp;"links" : {<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"en-US" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"de" : ""<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"es" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"fr" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"it" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tr" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"uk" : "",<br>
-                                        &nbsp;&nbsp;&nbsp;},<br>
-                                        }
-                                    </p>
-                                    <button type="button" data-clipboard-text='{
-                                        "identifier" : "4c8048",
-                                        "task" : {
-                                        "en-US" : "Go see a Broadway production",
-                                        "de" : "Sieh dir eine Broadway-Produktion an",
-                                        "es" : "Ve a ver una producció de Broadway",
-                                        "fr" : "Va voir une production de Broadway",
-                                        "it" : "Vai a vedere una produzione di Broadway",
-                                        "tr" : "Bir Broadway prodüksiyonu izlemeye gidin",
-                                        "uk" : "Відвідати бродвейську виставу"
-                                        },
-                                        "category" : "fun",
-                                        "person" : 4,
-                                        "cost" : "$$$",
-                                        "links" : {
-                                        "en-US" : "",
-                                        "de" : ""
-                                        "es" : "",
-                                        "fr" : "",
-                                        "it" : "",
-                                        "tr" : "",
-                                        "uk" : "",
-                                        },
-                                        }'
-                                            class="clipboard p-2 bg-gray-50 absolute top-0 right-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="h-5 w-5 fill-transparent group-hover:fill-gray-500 transition-all">
-                                            <path
-                                                d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/>
-                                        </svg>
-                                    </button>
-                                </div>
+                                <p class="text-sm">{{__('Response (JSON)')}}</p>
+                                <div class="w-full relative group overflow-x-auto">{{__('As a response you will get the Task with it unique identifier')}}</div>
                             </div>
                         </div>
                     </div>
