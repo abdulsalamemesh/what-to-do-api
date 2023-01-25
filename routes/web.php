@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\DocumentationController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TaskController;
-use Illuminate\Support\Facades\App;
+use App\Http\Livewire\Tasks\Create;
+use App\Http\Livewire\WhatToDo;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -28,7 +26,7 @@ Route::get('setLocal/{locale}', function ($locale) {
 
     return redirect()->back();
 })->name('setLocal');
-Route::view('/', 'home')->name('home');
-Route::view('/tasks/create', 'tasks.create')->name('tasks.create');
+Route::get('/', WhatToDo::class)->name('home');
+Route::get('/tasks/create', Create::class)->name('tasks.create');
 Route::view('/documentation', 'documentation')->name('documentation');
 Route::view('/about', 'about')->name('about');
