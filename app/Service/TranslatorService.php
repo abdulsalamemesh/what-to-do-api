@@ -23,7 +23,7 @@ class TranslatorService
                 $translations[$supportedLanguage] = $text;
                 continue;
             }
-            $translations[$supportedLanguage] = $translator->translateText($text, $from == 'en-US' ? 'en' : $from, $supportedLanguage, in_array($supportedLanguage, ['de', 'es', 'fr', 'it']) ? ['formality' => 'less'] : [])->text;
+            $translations[$supportedLanguage] = $translator->translateText($text, $from == 'en-US' ? 'en' : $from, $supportedLanguage,  ['formality' => 'prefer_less'])->text;
         }
         return $translations;
     }
